@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--当焦点获取时value值消失，，，失去焦点value值恢复-->
+
+		<!--.onfocus---获取焦点时触发事件
+		.onblur----失去焦点时触发事件-->
+		<input type="text" value="请输入内容" />
+
+	</body>
+	<script type="text/javascript">
+		var aInt = document.getElementsByTagName('input');
+
+		aInt[0].onfocus = function() {
+			if(this.value == '请输入内容')
+				this.value = '';
+		}
+		aInt[0].onblur = function() {
+			if(this.value == '') {
+				this.value = '请输入内容';
+			}
+		}
+	</script>
+
+</html>

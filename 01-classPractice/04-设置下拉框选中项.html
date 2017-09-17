@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input type="button" name="" id="inp" value="修改默认下拉框默认值" />
+		<select id="sel">
+			<option value="">北京</option>
+			<option value="">上海</option>
+			<option value="">广州</option>
+			<option value="">深圳</option>
+			<option value="">杭州</option>
+		</select>
+	</body>
+	<script>
+		var oInt = document.getElementById('inp');
+		var aOpt = document.getElementById('sel').getElementsByTagName('option');
+
+		oInt.onclick = function() {
+			aOpt[1].selected = true;
+		}
+	</script>
+
+</html>

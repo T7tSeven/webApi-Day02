@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--案例:点击案例设置性别和兴趣选项选中-->
+		<p>案例:</p>
+		性别:
+		<input type="radio" name="sex"  />man
+		<input type="radio" name="sex"  />woman<br /> 兴趣:
+		<input type="checkbox"  />ListenMusic
+		<input type="checkbox" />WatchMovie
+		<input type="checkbox" />DoSport
+
+	</body>
+	<script type="text/javascript">
+		var aP = document.getElementsByTagName('p')[0];
+		var aInt = document.getElementsByTagName('input');
+		var onOff = false;
+		aP.onclick = function() {
+			
+			//----暴力清楚所有选项
+			for(var i = 0; i < aInt.length; i++) {
+				aInt[i].checked = false;
+			}
+			//----设置点击事件
+
+			for(var i = 0; i < aInt.length; i++) {
+				if(onOff) {
+					if(i == 0 || i == 4) {
+						aInt[i].checked = true;						
+					}				
+				}
+				else{
+					if(i != 0 && i != 4) {
+						aInt[i].checked = true;						
+					}	
+				}				
+			}
+			onOff = !onOff;
+		}
+	</script>
+
+</html>

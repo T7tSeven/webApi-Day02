@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--案例:点击案例设置下拉框某个选项选中-->
+		<input type="button" name="" id="" value="点击设置" />
+		<select id="sel">
+			<option value="">鹿晗</option>
+			<option value="">吴亦凡</option>
+			<option value="">张艺兴</option>
+			<option value="">黄子韬</option>
+
+		</select>
+	</body>
+	<script type="text/javascript">
+		var aInt = document.getElementsByTagName('input')[0];
+		var aOpt = document.getElementById('sel').getElementsByTagName('option');
+
+		aInt.onclick = function() {
+			aOpt[0].selected = true;
+		}
+	</script>
+
+</html>

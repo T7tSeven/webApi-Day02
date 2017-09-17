@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			input {
+				border: 0;
+				border: 1px solid #ccc;
+				width: 300px;
+				height: 30px;
+				margin: 10px;
+				/*获取插入条之后的蓝色外边框去除*/
+				outline-style: none;
+				padding-left: 10px;
+				font-size: 18px;
+			}
+			
+			.wrong {
+				border: 1px solid red;
+			}
+			
+			.wrong-span {
+				color: red;
+				height: 30px;
+				line-height: 30px;
+			}
+			
+			.right {
+				color: green;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--oninput-----输入框内容改变就触发事件-->
+		账号:<input type="text" name="" id="" value="" /><span></span><br/> 密码:
+		<input type="password" name="" id="" value="" />
+	</body>
+	<script type="text/javascript">
+		var aInp = document.getElementsByTagName('input');
+		var aSpan = document.getElementsByTagName('span');
+		aInp[0].onblur = function() {
+			var str = this.value;
+			if(str === '') {
+				aSpan[0].innerHTML = '请输入账号';
+				aSpan[0].className = 'wrong-span';
+			}
+		}
+		aInp[0].oninput = function() {
+			var str = this.value;
+			if(str.length < 6 || str.length > 20) {
+				aSpan[0].innerHTML = '请输入字符长度为6-20';
+				aSpan[0].className = 'wrong-span';
+				this.className = 'wrong';
+			} else {
+				this.className = '';
+				aSpan[0].innerHTML = '输入正确';
+				aSpan[0].className = 'right';
+			}
+		}
+	</script>
+
+</html>

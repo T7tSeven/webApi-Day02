@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			input {
+				height: 30px;
+				width: 100px;
+				outline: none;
+				background-color: skyblue;
+				color: #FFFFFF;
+				border: none;
+			}
+			
+			div {
+				height: 150px;
+				width: 414px;
+				background-color: hotpink;
+				color: #FFFFFF;
+				font: 20px "微软雅黑";
+				line-height: 150px;
+				text-align: center;
+				display: none;
+			}
+			
+			.active {
+				background-color: pink;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--getAttribute()----获取自定义属性和常规属性
+		setAttribute()----设置自定义属性
+		removeAttribute()--移除自定义属性-->
+		<input type="button" class="active" value="歌曲" />
+		<input type="button" value="电视剧" />
+		<input type="button" value="电影" />
+		<input type="button" value="杂志" />
+		<div style="display: block;">某时某刻</div>
+		<div>择天记</div>
+		<div>盗墓笔记</div>
+		<div>时尚芭莎</div>
+	</body>
+	<script type="text/javascript">
+		var aBtn = document.getElementsByTagName('input');
+		var aDiv = document.getElementsByTagName('div');
+
+		//----给每个按钮添加事件
+		for(var i = 0; i < aBtn.length; i++) {
+			aBtn[i].index = i;
+			aBtn[i].onmouseover = function() {
+
+				//----暴力清楚所有aBtn[i]的class属性
+				for(var i = 0; i < aBtn.length; i++) {
+					aDiv[i].style.display = 'none';
+					aBtn[i].className = '';
+				}
+				this.className = 'active';
+				//当当前按钮显示时让旗下div显示出来，，，其他的div隐藏
+				//aDiv[i].style.display='block';   //---------------不能用当前的i来设置，，此时的i为最外层循环后的i,,值为3
+				//------设置自定义属性获取当前的i值
+				//------设置变量index存储当前的i值，，，，，以便应用
+				aDiv[this.index].style.display = 'block';
+
+			}
+
+		}
+	</script>
+
+</html>
